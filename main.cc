@@ -1,6 +1,6 @@
 #include<iostream>
-#include"Simplex.h"
 #include"ManifoldSampling.h"
+#include"Complexes.h"
 #define DIM 4
 
 int main(){
@@ -8,16 +8,19 @@ int main(){
     // int word[] = {1,2,3,4,5};
     // int word2[] = {1,2,3,7,8, 9};
     // int word3[] = {10,11,12};
+    // int word4[] = {1,2,3, 4};
     // simp.insert(word, 5);
     // simp.insert(word2, 6);
     // simp.insert(word3, 3);
+    // simp.insert(word4, 4);
+    // simp.print();
     CircleSampler<DIM, double> cs{};
-    int num_samples = 10;
-    CircleSampler<DIM, double>::EmbMatrix<-1> mat(DIM+1, 10);
+    int num_samples = 100;
+    CircleSampler<DIM, double>::EmbMatrix<-1> mat(DIM+1, num_samples);
     cs.UniformSample(mat, num_samples);
-    double acc = 0;
-    std::cout<<mat;
-    std::cout<<mat.transpose() * mat;
+    VRComplex(mat, 3);
+    std::cout<<"Finished\n"<<std::flush;
+
     // CircleSampler<DIM, double>::CoordVector vec = CircleSampler<DIM, double>::CoordVector::Zero();
     // CircleSampler<DIM, double>::CoordSquareMatrix cov;
     // int i = 0;

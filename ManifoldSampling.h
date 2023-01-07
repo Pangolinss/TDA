@@ -82,6 +82,7 @@ class CircleSampler : public Sampler<RealType, Dim+1>{
             i++;
         }
     }
+    
 
 };
 
